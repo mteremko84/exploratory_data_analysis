@@ -1,0 +1,21 @@
+Plot 1: exploratory data analysis
+##Make sure you are in the directory that contain the data file.
+>dataFile<-read.table("./household_power_consumption.txt",na.string="?",stringsAsFactors=FALSE)
+#Converting the code into numeric
+> globalActivePower<-as.numeric(as.character(dataFile$Global_active_power)) 
+
+#open a graphic device
+>png(filename = "plot1.png", 
+    width = 480, height = 480, 
+    units = "px", bg = "transparent")
+
+#plotting the histogram
+>hist(globalActivePower, 
+     col = "red", 
+     main = "Global Active Power", 
+     xlab = "Global Active Power (kilowatts)",
+     breaks = 12, ylim = c(0, 1200))
+
+
+hist() produces an error because...
+read.table returns a data.frame and hist needs a vector. 
